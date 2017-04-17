@@ -14,9 +14,11 @@ class MeteorologistController < ApplicationController
     #
     # The street address that the user typed is in the variable @street_address.
     # ==========================================================================
+    key = "AIzaSyByJC6WbimSOroP2zI4gTEcAu91BRAzDfk"
     name = @street_address.gsub(" ","+")
-    url1 = "http://maps.googleapis.com/maps/api/geocode/json?address=" + "name" + "&sensor=false"
-    
+    # url1 = "http://maps.googleapis.com/maps/api/geocode/json?address=" + "name" + "&sensor=false"
+    url1 = "https://maps.googleapis.com/maps/api/geocode/json?address=" + name + "&key=" + key
+
     data = open(url1).read
     parsed_data = JSON.parse(data)
 

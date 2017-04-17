@@ -16,8 +16,10 @@ class GeocodingController < ApplicationController
     #
     # The street address that the user typed is in the variable @street_address.
     # ==========================================================================
+    key= "AIzaSyByJC6WbimSOroP2zI4gTEcAu91BRAzDfk"
     name = @street_address.gsub(" ","+")
-    url = "http://maps.googleapis.com/maps/api/geocode/json?address=" + "name" + "&sensor=false"
+    # url = "http://maps.googleapis.com/maps/api/geocode/json?address=" + "name" + "&sensor=false"
+      url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + name + "&key=" + key
     require 'open-uri'
     data = open(url).read
     parsed_data = JSON.parse(data)
